@@ -1,11 +1,11 @@
-let product = [{
+export let product = [{
   id:1,
   image: 'image/hoodie1front.jpeg',
   name: 'SHAYALENTO HOODIE',
   price: 400.00
 }];
 
-let tshirtProduct = [
+export let tshirtProduct = [
   {
     id:2,
     image: 'image/t2-front.jpeg',
