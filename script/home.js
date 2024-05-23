@@ -23,7 +23,7 @@ product.forEach((product) => {
         <button>XXL- EXTRA EXTRA LARGE</button>
         <button>XXXL-3X</button>
         <div class="add-buy-buttons">
-          <button>ADD TO CART</button>
+          <button class="js-add-to-cart">ADD TO CART</button>
           <button style="background-color:#A8299B ;">BUY NOW</button>
         </div>
       </div>
@@ -43,13 +43,40 @@ tshirtProduct.forEach((tshirtProduct) => {
         <p>${tshirtProduct.name}</p>
         <p>R${tshirtProduct.priceCents.toFixed(2)}</p>
         <div class="add-buy-buttons">
-          <button>ADD TO CART</button>
-          <button style="background-color:#A8299B ;">BUY NOW</button>
+          <button class="js-add-to-cart"data-product-id="${tshirtProduct.id}"
+          >ADD TO CART</button>
+          <button style="background-color:#A8299B;">BUY NOW</button>
         </div>
       </div>
     </div>
   `;
 });
 
-console.log(tshirtProductHTML);
 document.querySelector('.js-tshirt-grid-container').innerHTML = tshirtProductHTML;
+
+document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+  button.addEventListener('click', () => {
+    const productId =button.dataset.productId;
+    
+
+   let matchingItem;
+
+    cart.forEach((item) => {
+      if (productId === item.productId) {
+         matchingItem = item
+      }
+    });
+
+    if (matchingItem) {
+        matchingItem.quantity +=1
+    }else{
+      cart.push({
+        productId: productId,
+        quantity:1
+     });
+    }
+    
+
+
+  });
+});
