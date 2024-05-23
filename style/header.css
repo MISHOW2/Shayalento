@@ -6,15 +6,40 @@
 
 }
 
-.header{
-  background-color: black;
-  width:100%;
-  height: 70px;
-  color: white;
-  align-items: center;
-   padding: 30px 160px 30px;
-   top: 0;
+body {
+  margin: 0;
+  padding: 0;
+  height: 2000px; /* For demonstration purposes */
 }
+
+.header {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 70px;
+  padding: 30px 160px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: top 0.3s ease-in-out;
+  z-index: 1000;
+  
+}
+
+.hover-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px; /* Height of the area to hover over */
+  z-index: 999; /* Make sure it's above other content */
+}
+
+.hidden-header {
+  top: -100px; /* Move header off-screen */
+}
+
 
 .logo img{
   width: 88px;
