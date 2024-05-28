@@ -1,8 +1,8 @@
 import { cart, addToCart} from "../data/cart.js";
-import { product, tshirtProduct } from "../data/products.js";
+import { products, tshirtProduct } from "../data/products.js";
 
 let productHTML = '';
-product.forEach((product) => {
+products.forEach((product) => {
   productHTML += `
     <div class="new-arrival-image-container">
       <img src="${product.image}" alt="">
