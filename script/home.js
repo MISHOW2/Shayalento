@@ -1,6 +1,6 @@
 import { cart, addToCart} from "../data/cart.js";
 import { hoodie, tshirt } from "../data/products.js";
-
+import { formartCurrency } from "./utils/money.js";
 
 let hoodieProductHTML = '';
 hoodie.forEach((hoodieProduct) => {
@@ -9,7 +9,7 @@ hoodie.forEach((hoodieProduct) => {
       <img src="${hoodieProduct.image}" alt="">
     </div>
     <div class="new-arrival-image-content">
-      <h1>${hoodieProduct.name} R ${hoodieProduct.price}</h1>
+      <h1>${hoodieProduct.name} R ${formartCurrency(hoodieProduct.priceCents)}</h1>
       <p>COLOR</p>
       <p>WHITE</p>
       <div class="size-guide">
@@ -43,7 +43,7 @@ tshirt.forEach((tshirtProduct) => {
       <img src="${tshirtProduct.image}" alt="">
       <div class="t-shirt-content">
         <p>${tshirtProduct.name}</p>
-        <p>R${tshirtProduct.priceCents.toFixed(2)}</p>
+        <p>R${formartCurrency(tshirtProduct.priceCents)}</p>
         <div class="add-buy-buttons">
           <button class="js-add-to-cart"data-tshirt-id="${tshirtProduct.id}"
           >ADD TO CART</button>

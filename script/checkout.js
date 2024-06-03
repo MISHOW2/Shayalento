@@ -1,5 +1,7 @@
 import { cart, addToCart } from "../data/cart.js";
 import { tshirt, hoodie } from "../data/products.js";
+import { formartCurrency } from "./utils/money.js";
+
 
 let cartSummaryHTML ='';
 
@@ -29,7 +31,7 @@ cart.forEach((cartItem) => {
     <p>S</p>
     <p><button>+</button>${cartItem.quantity}<button>-</button></p>
     
-      <p>R${matchingProduct.priceCents}</p> 
+      <p>R${formartCurrency(matchingProduct.priceCents)}</p> 
     </div>
 </div>
 <hr>

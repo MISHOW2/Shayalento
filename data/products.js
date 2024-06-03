@@ -3,7 +3,7 @@ export let hoodie = [
     id:1,
     image: "image/hoodie1front.jpeg",
     name: "SHAYALENTO HOODIE",
-    price: 400.00
+    priceCents: 400.00
   }];
   
   export let tshirt = [
