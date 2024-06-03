@@ -1,14 +1,15 @@
 import { cart, addToCart} from "../data/cart.js";
-import { products, tshirtProduct } from "../data/products.js";
+import { hoodie, tshirt } from "../data/products.js";
 
-let productHTML = '';
-products.forEach((product) => {
-  productHTML += `
+
+let hoodieProductHTML = '';
+hoodie.forEach((hoodieProduct) => {
+  hoodieProductHTML += `
     <div class="new-arrival-image-container">
-      <img src="${product.image}" alt="">
+      <img src="${hoodieProduct.image}" alt="">
     </div>
     <div class="new-arrival-image-content">
-      <h1>${product.name} R ${product.price}</h1>
+      <h1>${hoodieProduct.name} R ${hoodieProduct.price}</h1>
       <p>COLOR</p>
       <p>WHITE</p>
       <div class="size-guide">
@@ -32,11 +33,11 @@ products.forEach((product) => {
   `;
 });
 
-document.querySelector('.js-product-container').innerHTML = productHTML;
+document.querySelector('.js-product-container').innerHTML = hoodieProductHTML;
 
 let tshirtProductHTML = '';
 
-tshirtProduct.forEach((tshirtProduct) => {
+tshirt.forEach((tshirtProduct) => {
   tshirtProductHTML += `
     <div class="t-shirt-container">
       <img src="${tshirtProduct.image}" alt="">
@@ -44,7 +45,7 @@ tshirtProduct.forEach((tshirtProduct) => {
         <p>${tshirtProduct.name}</p>
         <p>R${tshirtProduct.priceCents.toFixed(2)}</p>
         <div class="add-buy-buttons">
-          <button class="js-add-to-cart"data-product-id="${tshirtProduct.id}"
+          <button class="js-add-to-cart"data-tshirt-id="${tshirtProduct.id}"
           >ADD TO CART</button>
           <button style="background-color:#A8299B;">BUY NOW</button>
         </div>
@@ -60,9 +61,11 @@ document.querySelector('.js-tshirt-grid-container').innerHTML = tshirtProductHTM
 function updateCartQuantity(){
   
   let cartQuantity= 0;
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  });
+    cart.forEach((cartItem) => {
+      cartQuantity += cartItem.quantity;
+    });
+
+ 
 document.querySelector('.js-count').innerHTML = cartQuantity;
 
 
@@ -70,9 +73,11 @@ document.querySelector('.js-count').innerHTML = cartQuantity;
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
-    const productId =button.dataset.productId;
-    
-      addToCart();
-      updateCartQuantity();  
+    const productId =button.dataset.tshirtId;
+  
+      addToCart(productId);
+      console.log(cart);
+      updateCartQuantity(); 
   });
 });
+

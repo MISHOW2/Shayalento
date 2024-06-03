@@ -1,35 +1,40 @@
-import { cart } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { cart, addToCart } from "../data/cart.js";
+import { tshirt, hoodie } from "../data/products.js";
 
+let cartSummaryHTML ='';
 
 cart.forEach((cartItem) => {
-   const productId =cartItem.productId;  
-   
-   let matchingProduct;
+  const productId = cartItem.productId;
 
-   products.forEach((product) => {
-     if (product.id === productId) {
-      matchingProduct = product;
-     }
-    
-   });
-   console.log(matchingProduct);
-  `
+  let matchingProduct;
+
+  tshirt.forEach((tshirt) =>{
+  if(tshirt.id === productId) {
+     matchingProduct = tshirt;
+  }
+  });
+  console.log(matchingProduct);
+ 
+ 
+ cartSummaryHTML += `
   <div class="product">
   <div class="image-name-container">
-    <img src="image/hoodie1front.jpeg" alt="">
-    <p>Shayalento Black Hoodie</p>
+    <img src="${matchingProduct.image}" alt="">
+    <p>${matchingProduct.name}</p>
     
   </div>
   
   
   <div class="item-container-infor">
     <p>S</p>
-    <p><button>+</button>2<button>-</button></p>
+    <p><button>+</button>${cartItem.quantity}<button>-</button></p>
     
-      <p>R800</p> 
+      <p>R${matchingProduct.priceCents}</p> 
     </div>
 </div>
 <hr>
-  `
+  `;
+  console.log(cartSummaryHTML);
 });
+
+document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
