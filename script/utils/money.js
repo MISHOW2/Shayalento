@@ -1,3 +1,3 @@
-export function formartCurrency(priceCents){
+export function formatCurrency(priceCents){
   return (priceCents).toFixed(2);
 }

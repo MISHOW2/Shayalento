@@ -45,7 +45,7 @@ tshirt.forEach((tshirtProduct) => {
         <p>${tshirtProduct.name}</p>
         <p>R${formartCurrency(tshirtProduct.priceCents)}</p>
         <div class="add-buy-buttons">
-          <button class="js-add-to-cart"data-tshirt-id="${tshirtProduct.id}"
+          <button class="js-add-to-cart"data-product-id="${tshirtProduct.id}"
           >ADD TO CART</button>
           <button style="background-color:#A8299B;">BUY NOW</button>
         </div>
@@ -73,7 +73,7 @@ document.querySelector('.js-count').innerHTML = cartQuantity;
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
-    const productId =button.dataset.tshirtId;
+    const productId =button.dataset.productId;
   
       addToCart(productId);
       console.log(cart);
