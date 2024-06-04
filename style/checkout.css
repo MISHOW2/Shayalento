@@ -32,7 +32,7 @@ h1{
 
 .image-name-container{
   display: flex;
-  gap: 10px;
+  gap: 60px;
 }
 .product{
   margin-left: 36px;
@@ -49,6 +49,7 @@ h1{
   flex-direction: row;
   gap: 46px;
   width: 436px;
+  margin-left: 39px;
    
 }
 

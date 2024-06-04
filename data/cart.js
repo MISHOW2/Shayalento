@@ -1,32 +1,23 @@
-export let cart = [{
-  productId: 2,
-  quantity:2
-},
-{
-  productId: 3,
-  quantity:1
+export let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// This ensures `cart` is an empty array if `localStorage` does not have a 'cart' item
+
+
+function saveToStorage() {
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
-  
-];
-
-
-export function addToCart(productId){
-  let matchingItem;
-
-  cart.forEach((cartItem) => {
-    if (productId === cartItem.productId) {
-       matchingItem = cartItem;
-    }
-  });
+export function addToCart(productId) {
+  let matchingItem = cart.find(cartItem => cartItem.productId === productId);
 
   if (matchingItem) {
-      matchingItem.quantity +=1;
-  }else{ 
+    matchingItem.quantity += 1;
+  } else {
     cart.push({
       productId: productId,
-      quantity:1
-   });
+      quantity: 1
+    });
   }
+  saveToStorage();
 }
 
 
@@ -49,8 +40,5 @@ export function updateQuantity(productId, action) {
     if (item.quantity <= 0) {
       cart = cart.filter(cartItem => cartItem.productId !== productId);
     }
-  } else if (action === 'add') {
-    // If the item doesn't exist in the cart and the action is add, add the item to the cart
-    cart.push({ productId: productId, quantity: 1 });
-  }
+  } saveToStorage();
 }
