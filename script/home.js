@@ -1,6 +1,6 @@
-import { cart, addToCart } from "../data/cart.js";
+import { cart, addToCart} from "../data/cart.js";
 import { products } from "../data/products.js";
-
+import { formatCurrency } from "./utils/money.js";
 
 let hoodieProductHTML = '';
 
@@ -41,7 +41,7 @@ products.forEach((product) => {
           <img src="${item.image}" alt="">
           <div class="t-shirt-content">
             <p>${item.name}</p>
-            <p>R${(item.priceCents).toFixed(2)}</p>
+            <p>R${formatCurrency(item.priceCents)}</p>
             <div class="add-buy-buttons">
               <button class="js-add-to-cart" data-product-id="${item.id}">ADD TO CART</button>
               <button style="background-color:#A8299B;">BUY NOW</button>
@@ -67,9 +67,11 @@ function updateCartQuantity() {
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
     const productId = button.dataset.productId;
-    addToCart(Number(productId));
+   
+     addToCart(productId);
     updateCartQuantity();
+    console.log(cart);
   });
 });
 
-updateCartQuantity(); // Initialize cart quantity display
+updateCartQuantity(); 
