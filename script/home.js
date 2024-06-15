@@ -1,26 +1,61 @@
 import { cart, addToCart } from "../data/cart.js";
-import {tshirt } from "../data/products.js";
+import { products } from "../data/products.js";
+
+
+let hoodieProductHTML = '';
+
+products.forEach( (product)=> {
+   if(product.category === "hoodies"){
+    product.items.forEach((item)=>{
+        hoodieProductHTML+=`
+        
+            <div class="hoodie-container">
+            <img src="${item.image}" alt="">
+            <div class="hoodie-content">
+              <p>${item.name}</p>
+              <p>${(item.priceCents).toFixed(2)}</p>
+              <div class="add-buy-buttons">
+                <button class="js-add-to-cart" data-product-id="${item.id}">ADD TO CART</button>
+                <button style="background-color:#A8299B;">BUY NOW</button>
+              </div>
+            </div>
+          </div>
+        
+        
+        `;
+    });
+   }
+});
+
+
+document.querySelector('.js-hoodie-grid-container').innerHTML = hoodieProductHTML;
 
 
 let tshirtProductHTML = '';
-tshirt.forEach((tshirtProduct) => {
-  tshirtProductHTML += `
-    <div class="t-shirt-container">
-      <img src="${tshirtProduct.image}" alt="">
-      <div class="t-shirt-content">
-        <p>${tshirtProduct.name}</p>
-        <p>R${tshirtProduct.priceCents.toFixed(2)}</p>
-        <div class="add-buy-buttons">
-          <button class="js-add-to-cart" data-product-id="${tshirtProduct.id}">ADD TO CART</button>
-          <button style="background-color:#A8299B;">BUY NOW</button>
+
+products.forEach((product) => {
+  if (product.category === "tshirts") {
+    product.items.forEach((item) => {
+      tshirtProductHTML += `
+        <div class="t-shirt-container">
+          <img src="${item.image}" alt="">
+          <div class="t-shirt-content">
+            <p>${item.name}</p>
+            <p>R${(item.priceCents).toFixed(2)}</p>
+            <div class="add-buy-buttons">
+              <button class="js-add-to-cart" data-product-id="${item.id}">ADD TO CART</button>
+              <button style="background-color:#A8299B;">BUY NOW</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  `;
+      `;
+    });
+  }
 });
 
-document.querySelector('.js-tshirt-grid-container').innerHTML = tshirtProductHTML;
+document.querySelector('.js-tshirt-grid-container').innerHTML=tshirtProductHTML;
 
+ 
 function updateCartQuantity() {
   let cartQuantity = 0;
   cart.forEach((cartItem) => {
