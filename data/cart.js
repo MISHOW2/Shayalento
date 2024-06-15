@@ -1,6 +1,6 @@
 export let cart =[{
    productId: 1,
-   quantity: 2 
+   quantity: 1
 },
 {
   productId: 4,

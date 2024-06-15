@@ -41,7 +41,7 @@ products.forEach((product) => {
           <img src="${item.image}" alt="">
           <div class="t-shirt-content">
             <p>${item.name}</p>
-            <p>R${formatCurrency(item.priceCents)}</p>
+            <p>R${(item.priceCents).toFixed(2)}</p>
             <div class="add-buy-buttons">
               <button class="js-add-to-cart" data-product-id="${item.id}">ADD TO CART</button>
               <button style="background-color:#A8299B;">BUY NOW</button>
