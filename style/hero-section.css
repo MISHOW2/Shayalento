@@ -27,6 +27,7 @@
 
 .new-arrival{
   margin-top: 200px;
+ align-items: center;
 }
 .new-arrival h1{
 
@@ -36,48 +37,33 @@
   margin-top: 10px;
 }
 
-.new-arrival-container{
-  display: grid;
-  grid-template-columns:1fr 1fr ;
+
+
+
+
+.hoodie-grid-container{
   margin-top: 100px;
-  width: 1240px;
- 
+  align-items: center;
+   display: flex;
+  justify-content: center;
+  height: 490px;
+  text-align: center;
+  gap: 50px;
+  margin-bottom: 200px;
 }
-
-
-.new-arrival-container h1{
-  font-size: 26px;
+.hoodie-container{
+  width: 231px;
+  height: 523px;
   text-align: left;
-  width: 300px;
-  height: 137px;
-  font-weight: 700;
-  
+  font-weight: 500;
+  padding: 10px;
+  display: grid;
+   justify-content: center;
 
 }
 
-
-.new-arrival-image-container img{
-  width: 491px;
-  height: 596px;
-}
-.new-arrival-image-content{
-  width: 490px;
-  
-}
-.size-guide{
-  display: flex;
-  justify-content: space-between;
-}
-
-.new-arrival-image-content-buttons button{
- height: 44PX;
- background-color:#DEDEDE ;
-border: none;
-margin-top: 10px;
-gap: 10px;
-cursor: pointer;
-
-
+.hoodie-container img{
+  width: 100%;
 }
 
 .add-buy-buttons{
@@ -112,6 +98,9 @@ cursor: pointer;
 h1{
   font-weight: 600;
 }
+.hoodie-content p{
+  font-weight: 500;
+}
 .t-shirt-container p{
   font-weight: 500;
 }
@@ -136,12 +125,14 @@ h1{
 .t-shirt-container img{
   width: 100%;
 }
+
 .t-shirt-grid-container{
   align-items: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+   display: flex;
   padding: 180px;
   height: 490px;
+  justify-content: center;
+  gap: 50px;
 }
 
 .footer{

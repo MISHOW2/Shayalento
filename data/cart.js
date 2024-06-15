@@ -1,4 +1,4 @@
-export let cart = JSON.parse(localStorage.getItem('cart')) || [];
+export let cart = [];
 
 // This ensures `cart` is an empty array if `localStorage` does not have a 'cart' item
 
@@ -17,7 +17,7 @@ export function addToCart(productId) {
       quantity: 1
     });
   }
-  saveToStorage();
+
 }
 
 
@@ -40,5 +40,5 @@ export function updateQuantity(productId, action) {
     if (item.quantity <= 0) {
       cart = cart.filter(cartItem => cartItem.productId !== productId);
     }
-  } saveToStorage();
+  } 
 }
