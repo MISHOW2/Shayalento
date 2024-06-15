@@ -67,9 +67,14 @@ function updateCartDisplay() {
   document.querySelectorAll('.quantity-decrease').forEach(button => {
     button.addEventListener('click', (event) => {
       const productId = parseInt(event.target.getAttribute('data-product-id'));
-      const cartItem = cart.find(item => item.productId === productId);
-      if (cartItem && cartItem.quantity > 1) {
-        cartItem.quantity -= 1;
+      const cartItemIndex = cart.findIndex(item => item.productId === productId);
+      if (cartItemIndex !== -1) {
+        const cartItem = cart[cartItemIndex];
+        if (cartItem.quantity > 1) {
+          cartItem.quantity -= 1;
+        } else {
+          cart.splice(cartItemIndex, 1); // Remove item from cart
+        }
         updateCartDisplay();
       }
     });
