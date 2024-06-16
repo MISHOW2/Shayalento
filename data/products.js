@@ -1,3 +1,15 @@
+export function getProduct(productId){
+  products.forEach((product) => {
+    product.items.forEach((item) => {
+      if (item.id === productId) {
+        matchingProduct = item;
+      }
+    });
+  });
+  return matchingProduct;
+}
+
+
 export let products = [
   {
     category: "hoodies",

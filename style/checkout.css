@@ -10,7 +10,10 @@ p{
   margin-top: 150px;
   padding: 50px;
 }
-
+hr{
+  background-color: black;
+  font-weight: 600;
+}
 h1{
   font-size: 48px;
   font-weight: 700;
@@ -81,3 +84,23 @@ button{
   border-radius: none;
 }
 
+.total-amount{
+  margin-top: 60px;
+  margin-left: 870px;
+   font-weight: 700;
+   align-items: center;
+   justify-content: center;
+   display: grid;
+   gap: 30px;
+
+}
+
+.total-amount button{
+  width: 100%;
+  color: white;
+  background-color: black;
+  border: none;
+  height: 41px;
+  margin-left: 3px;
+  font-weight: 700;
+}
