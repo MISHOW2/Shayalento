@@ -1,4 +1,3 @@
-
 export let products = [
   {
     category: "hoodies",
@@ -41,9 +40,3 @@ export let products = [
     ]
   }
 ];
-
-
-
-
-
-
